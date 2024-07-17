@@ -1,0 +1,14 @@
+const String singlePlayer = 'Single Player';
+const String multiPlayer = 'Multi Player';
+const String scoreHistory = 'Score History';
+const String playerText = "Player";
+const String player1Text = 'Player 1';
+const String player2 = 'Player 2';
+const String draw = 'Draw';
+const String youWin = 'You Win !!';
+const String youLose = 'You Lose !!';
+const String itsADraw = 'It\'s a Draw!';
+const String soccer = 'soccer';
+const String basketball = 'basketball';
+const String resetGame = 'Reset Game';
+const String yourScore = 'Your Score';

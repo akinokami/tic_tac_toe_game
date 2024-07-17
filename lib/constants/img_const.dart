@@ -1,0 +1,11 @@
+const String homeGifImgPath = 'assets/logo.webp';
+const String splashImgPath = 'assets/splash.webp';
+const String splashBodyImgPath = 'assets/splash_body.webp';
+const String dialogBgImgPath = 'assets/dialog_bg.webp';
+const String modeImgPath = 'assets/mode.webp';
+const String soccerImgPath = 'assets/soccer.webp';
+const String basketballImgPath = 'assets/basketball.webp';
+const String winnerJsonPath = 'assets/winner.json';
+const String gameBgImgPath = 'assets/game_bg.webp';
+const String loserJsonPath = 'assets/loser.json';
+const String gridChildImgPath = 'assets/green_box.webp';
