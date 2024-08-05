@@ -53,88 +53,94 @@ class ScoreScreen extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Card(
-                        child: ListTile(
-                          leading: Image.asset("assets/single.webp"),
-                          title: Text(
-                            "Your current score",
-                            style: GoogleFonts.gamjaFlower(
-                                fontSize: 16,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.purple),
-                          ),
-                          subtitle: Text(
-                            " Single player mode",
-                            style: GoogleFonts.gamjaFlower(
-                                fontSize: 14,
-                                fontWeight: FontWeight.normal,
-                                color: Colors.purple),
-                          ),
-                          trailing: Column(
-                            crossAxisAlignment: CrossAxisAlignment.end,
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            children: [
-                              AnimatedNumberText(
-                                provider.playerSingleScore, // int or double
-                                curve: Curves.easeIn,
-                                duration: const Duration(seconds: 1),
-                                style:  GoogleFonts.gamjaFlower(fontSize: 30,color: Colors.purple),
-                                // formatter: (value) {
-                                //
-                                //   return formatted;
-                                // },
-                              ),
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: ListTile(
+                            leading: Image.asset("assets/single.webp"),
+                            title: Text(
+                              "Your current score",
+                              style: GoogleFonts.gamjaFlower(
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.purple),
+                            ),
+                            subtitle: Text(
+                              " Single player mode",
+                              style: GoogleFonts.gamjaFlower(
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.normal,
+                                  color: Colors.purple),
+                            ),
+                            trailing: Column(
+                              crossAxisAlignment: CrossAxisAlignment.end,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                AnimatedNumberText(
+                                  provider.playerSingleScore, // int or double
+                                  curve: Curves.easeIn,
+                                  duration: const Duration(seconds: 1),
+                                  style:  GoogleFonts.gamjaFlower(fontSize: 26,color: Colors.purple),
+                                  // formatter: (value) {
+                                  //
+                                  //   return formatted;
+                                  // },
+                                ),
 
-                              Text(
-                                " points",
-                                style: GoogleFonts.gamjaFlower(
-                                    fontSize: 14,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.purple),
-                              ),
-                            ],
+                                Text(
+                                  " points",
+                                  style: GoogleFonts.gamjaFlower(
+                                      fontSize: 12,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.purple),
+                                ),
+                              ],
+                            ),
                           ),
                         ),
                       ),
                       Card(
-                        child: ListTile(
-                          leading: Image.asset("assets/multi.webp"),
-                          title: Text(
-                            "Your current score",
-                            style: GoogleFonts.gamjaFlower(
-                                fontSize: 16,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.purple),
-                          ),
-                          subtitle: Text(
-                            " Multi player mode",
-                            style: GoogleFonts.gamjaFlower(
-                                fontSize: 14,
-                                fontWeight: FontWeight.normal,
-                                color: Colors.purple),
-                          ),
-                          trailing: Column(
-                            crossAxisAlignment: CrossAxisAlignment.end,
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            children: [
-                              AnimatedNumberText(
-                                provider.player1Score, // int or double
-                                curve: Curves.easeIn,
-                                duration: const Duration(seconds: 1),
-                                style:  GoogleFonts.gamjaFlower(fontSize: 30,color: Colors.purple),
-                                // formatter: (value) {
-                                //
-                                //   return formatted;
-                                // },
-                              ),
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: ListTile(
+                            leading: Image.asset("assets/multi.webp"),
+                            title: Text(
+                              "Your current score",
+                              style: GoogleFonts.gamjaFlower(
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.purple),
+                            ),
+                            subtitle: Text(
+                              " Multi player mode",
+                              style: GoogleFonts.gamjaFlower(
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.normal,
+                                  color: Colors.purple),
+                            ),
+                            trailing: Column(
+                              crossAxisAlignment: CrossAxisAlignment.end,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                AnimatedNumberText(
+                                  provider.player1Score, // int or double
+                                  curve: Curves.easeIn,
+                                  duration: const Duration(seconds: 1),
+                                  style:  GoogleFonts.gamjaFlower(fontSize: 26,color: Colors.purple),
+                                  // formatter: (value) {
+                                  //
+                                  //   return formatted;
+                                  // },
+                                ),
 
-                              Text(
-                                " points",
-                                style: GoogleFonts.gamjaFlower(
-                                    fontSize: 14,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.purple),
-                              ),
-                            ],
+                                Text(
+                                  " points",
+                                  style: GoogleFonts.gamjaFlower(
+                                      fontSize: 12,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.purple),
+                                ),
+                              ],
+                            ),
                           ),
                         ),
                       ),

@@ -1,13 +1,9 @@
 import 'dart:async';
 import 'dart:math';
-
 import 'package:audioplayers/audioplayers.dart';
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
 import '../constants/string_const.dart';
 import '../screens/game_result_dialog.dart';
 

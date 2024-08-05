@@ -167,14 +167,14 @@ class ScoreWidget extends StatelessWidget {
                 playerScore, // int or double
                 curve: Curves.easeIn,
                 duration: const Duration(seconds: 1),
-                style:  GoogleFonts.gamjaFlower(fontSize: 30,color: Colors.yellow),
+                style:  GoogleFonts.gamjaFlower(fontSize: 26,color: Colors.yellow),
                 // formatter: (value) {
                 //
                 //   return formatted;
                 // },
               ),
               Text(' pts',
-                  style: GoogleFonts.gamjaFlower(fontSize: 16, color: Colors.white)),
+                  style: GoogleFonts.gamjaFlower(fontSize: 14, color: Colors.white)),
 
             ],
           ),

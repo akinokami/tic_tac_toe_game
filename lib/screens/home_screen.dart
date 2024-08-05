@@ -1,5 +1,6 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
+import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -34,7 +35,7 @@ class _HomeScreenState extends State<HomeScreen> {
         SharedPreferences prefs = await SharedPreferences.getInstance();
         firstTime = prefs.getInt('firstTime') ?? 0;
         print("First Time: $firstTime");
-        if (firstTime == 0) {
+        if (firstTime == 1) {
           showDialog(
             context: context,
             barrierDismissible: false,
@@ -42,71 +43,94 @@ class _HomeScreenState extends State<HomeScreen> {
               return StatefulBuilder(
                 builder: (context, StateSetter setState) {
                   return AlertDialog(
-                    title: Text(
-                        'Privacy Policy',
-                        style: TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold,
-                        )
-                    ),
-                    content: Container(
-                      height: MediaQuery.of(context).size.height * 0.70,
-                      child: SingleChildScrollView(
-                          child: Column(
-                            children: [
-                              Text(Global.policy, style: TextStyle(fontSize: 12)),
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                children: [
-                                  Checkbox(
-                                    shape: RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.circular(6)),
-                                    activeColor: Colors.green,
-                                    side:  BorderSide(
-                                      width: 1.5,
-                                      color:
-                                      isChecked ? Colors.green : Colors.black,
-                                    ),
 
-                                    value: isChecked,
-                                    onChanged: (bool? value) {
-                                      setState(() {
-                                        isChecked = value!;
-                                        if (isChecked) {
-                                          isAccepted = true;
-                                        } else {
-                                          isAccepted = false;
-                                        }
-                                      });
-                                    },
-                                  ),
-                                  Text(
-                                      'I agreed to the Privacy Policy.',
-                                      style: TextStyle(
-                                        fontSize: 12,
-                                      )
-                                  )
-                                ],
-                              ),
-                              ElevatedButton(
-                                child: Text(
-                                  style: TextStyle(
-                                    fontSize: 14,
-                                    color: Colors.white,
-                                  ),
-                                  'Accept',
-
+                    content: SizedBox(
+                      height: MediaQuery.of(context).size.height * 0.80,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          SingleChildScrollView(
+                            child: SizedBox(
+                              height: MediaQuery.of(context).size.height * 0.65,
+                              width: double.infinity,
+                              //width: MediaQuery.of(context).size.width * 0.90,
+                              child: InAppWebView(
+                                // Initial URL request for the web view.
+                                initialUrlRequest: URLRequest(
+                                  url: Uri.parse("https://sites.google.com/view/mklive/home"),
                                 ),
-                                onPressed: isAccepted
-                                    ? () async{
-                                  SharedPreferences prefs =await SharedPreferences.getInstance();
-                                  prefs.setInt('firstTime', 1);
-                                  Navigator.pop(context);
-                                }
-                                    : null,
+
+                                // Initial options for the web view, configuring platform-specific and cross-platform settings.
+                                initialOptions: InAppWebViewGroupOptions(
+                                  android: AndroidInAppWebViewOptions(
+                                    cacheMode: AndroidCacheMode.LOAD_DEFAULT,
+                                    useHybridComposition: true,
+                                    useShouldInterceptRequest: true,
+                                  ),
+                                  crossPlatform: InAppWebViewOptions(
+                                    cacheEnabled: true,
+                                    useShouldOverrideUrlLoading: true,
+                                    javaScriptEnabled: true,
+                                  ),
+                                ),
+
+
                               ),
+                            ),
+                          ),
+                          // Text(Global.policy, style: TextStyle(fontSize: 12)),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              Checkbox(
+                                shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(6)),
+                                activeColor: Colors.green,
+                                side:  BorderSide(
+                                  width: 1.5,
+                                  color:
+                                  isChecked ? Colors.green : Colors.black,
+                                ),
+
+                                value: isChecked,
+                                onChanged: (bool? value) {
+                                  setState(() {
+                                    isChecked = value!;
+                                    if (isChecked) {
+                                      isAccepted = true;
+                                    } else {
+                                      isAccepted = false;
+                                    }
+                                  });
+                                },
+                              ),
+                              Text(
+                                  'I agreed to the Privacy Policy.',
+                                  style: TextStyle(
+                                    fontSize: 12,
+                                  )
+                              )
                             ],
-                          )),
+                          ),
+                          ElevatedButton(
+                            child: Text(
+                              style: TextStyle(
+                                fontSize: 14,
+                                color: Colors.white,
+                              ),
+                              'Accept',
+
+                            ),
+                            onPressed: isAccepted
+                                ? () async{
+                              SharedPreferences prefs =await SharedPreferences.getInstance();
+                              prefs.setInt('firstTime', 1);
+                              Navigator.pop(context);
+                            }
+                                : null,
+                          ),
+                        ],
+                      ),
                     ),
                   );
                 },
