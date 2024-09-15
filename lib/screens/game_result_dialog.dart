@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:get/utils.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
 import 'package:tic_tac_toe/constants/string_const.dart';
@@ -67,10 +68,10 @@ class GameResultDialog extends StatelessWidget {
                       duration: const Duration(milliseconds: 500),
                       child: Text(
                         result == 'Draw'
-                            ? 'It\'s a Draw!'
+                            ? 'draw'.tr
                             :  (result == 'basketball'
-                                ? 'Player 1 Wins !!'
-                                : (isSinglePlayer?"Computer Wins":'Player 2 Wins !!')),
+                                ? 'player1_won'.tr
+                                : (isSinglePlayer?"${'computer'.tr} ${'wins'.tr}":'player2_won'.tr)),
                         style: GoogleFonts.gamjaFlower(
                             fontSize: 40,
                             fontWeight: FontWeight.bold,
@@ -78,7 +79,7 @@ class GameResultDialog extends StatelessWidget {
                       ),
                     ),
                     if (result != 'Draw') Center(
-                      child: Text("10 points added to winner's score",
+                      child: Text("point_added".tr,
                           style: GoogleFonts.gamjaFlower(
                               fontSize: 22,
                               fontWeight: FontWeight.bold,

@@ -1,8 +1,13 @@
 import 'package:animated_text_lerp/animated_text_lerp.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
+import 'package:get/utils.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:tic_tac_toe/provider/tic_tac_toe_provider.dart';
+import 'package:tic_tac_toe/screens/change_language_screen.dart';
+import 'package:tic_tac_toe/widgets/custom_text.dart';
 
 import '../constants/img_const.dart';
 import '../widgets/cus_outline_gradient_circle_button.dart';
@@ -19,7 +24,7 @@ class ScoreScreen extends StatelessWidget {
         appBar: AppBar(
           centerTitle: true,
           title: Text(
-            "Score History",
+            "settings".tr,
             style: GoogleFonts.gamjaFlower(
                 fontSize: 20, fontWeight: FontWeight.bold, color: Colors.white),
           ),
@@ -51,21 +56,52 @@ class ScoreScreen extends StatelessWidget {
                   const SizedBox(height: 30),
                   Column(
                     mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
+                      CustomText(text: 'language_settings'.tr,fontSize: 20,color: Colors.white,fontWeight: FontWeight.bold,),
+                      GestureDetector(
+                        onTap: (){
+                          Get.to(ChangeLanguageScreen());
+                        },
+                        child: Card(
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: ListTile(
+                              leading: CustomText(text: "change_language".tr,fontSize: 14,color: Colors.purple,fontWeight: FontWeight.bold,),
+                              // title: Text(
+                              //   "your_best_score".tr,
+                              //   style: GoogleFonts.gamjaFlower(
+                              //       fontSize: 14,
+                              //       fontWeight: FontWeight.bold,
+                              //       color: Colors.purple),
+                              // ),
+                              // subtitle: Text(
+                              //   "single_player".tr,
+                              //   style: GoogleFonts.gamjaFlower(
+                              //       fontSize: 12,
+                              //       fontWeight: FontWeight.normal,
+                              //       color: Colors.purple),
+                              // ),
+                              trailing:Icon(Icons.language,color: Colors.purple,),
+                            ),
+                          ),
+                        ),
+                      ),
+                      SizedBox(height: 20.h,),
                       Card(
                         child: Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: ListTile(
                             leading: Image.asset("assets/single.webp"),
                             title: Text(
-                              "Your current score",
+                              "your_best_score".tr,
                               style: GoogleFonts.gamjaFlower(
                                   fontSize: 14,
                                   fontWeight: FontWeight.bold,
                                   color: Colors.purple),
                             ),
                             subtitle: Text(
-                              " Single player mode",
+                              "single_player".tr,
                               style: GoogleFonts.gamjaFlower(
                                   fontSize: 12,
                                   fontWeight: FontWeight.normal,
@@ -87,7 +123,7 @@ class ScoreScreen extends StatelessWidget {
                                 ),
 
                                 Text(
-                                  " points",
+                                  "point".tr,
                                   style: GoogleFonts.gamjaFlower(
                                       fontSize: 12,
                                       fontWeight: FontWeight.bold,
@@ -104,14 +140,14 @@ class ScoreScreen extends StatelessWidget {
                           child: ListTile(
                             leading: Image.asset("assets/multi.webp"),
                             title: Text(
-                              "Your current score",
+                              "your_best_score".tr,
                               style: GoogleFonts.gamjaFlower(
                                   fontSize: 14,
                                   fontWeight: FontWeight.bold,
                                   color: Colors.purple),
                             ),
                             subtitle: Text(
-                              " Multi player mode",
+                              "multi_player".tr,
                               style: GoogleFonts.gamjaFlower(
                                   fontSize: 12,
                                   fontWeight: FontWeight.normal,
@@ -133,7 +169,7 @@ class ScoreScreen extends StatelessWidget {
                                 ),
 
                                 Text(
-                                  " points",
+                                  "point".tr,
                                   style: GoogleFonts.gamjaFlower(
                                       fontSize: 12,
                                       fontWeight: FontWeight.bold,

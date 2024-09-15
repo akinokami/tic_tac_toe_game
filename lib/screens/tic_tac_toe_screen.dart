@@ -1,5 +1,6 @@
 import 'package:animated_text_lerp/animated_text_lerp.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:outline_gradient_button/outline_gradient_button.dart';
 import 'package:provider/provider.dart';
@@ -42,7 +43,7 @@ class TicTacToeHomePage extends StatelessWidget {
                           onPressed: () {
                             Navigator.pop(context);
                           }),
-                      Text("Score", style: GoogleFonts.gamjaFlower(fontSize: 24,color: Colors.white),),
+                      Text("score".tr, style: GoogleFonts.gamjaFlower(fontSize: 24,color: Colors.white),),
                       CustomOutlineGradientCircleButton(
                           iconData: provider.isMuted
                               ? Icons.volume_off
@@ -57,7 +58,7 @@ class TicTacToeHomePage extends StatelessWidget {
                   children: [
                     ScoreWidget(
                         padding: 20,
-                        title: player1Text,
+                        title: 'player1'.tr,
                         playerScore: singlePlayer
                             ? provider.playerSingleScore:provider.player1Score,
                         topLeftRadius: Radius.elliptical(16, 14),
@@ -65,7 +66,7 @@ class TicTacToeHomePage extends StatelessWidget {
                     ScoreWidget(
                         padding: 20,
                         title: singlePlayer
-                            ?"Computer": player2,
+                            ?"computer".tr: "player2".tr,
                         playerScore: singlePlayer
                             ? provider.playerSingle1Score:provider.player2Score,
                         topLeftRadius: Radius.circular(6),
@@ -81,7 +82,7 @@ class TicTacToeHomePage extends StatelessWidget {
                   child: Center(
                     child: Text(
                       provider.winner == ''
-                          ? '$playerText ${provider.currentPlayer}\'s turn'
+                          ? '${'player'.tr} ${provider.currentPlayer}\'s ${'turn'.tr}'
                           : "",
                       style: GoogleFonts.gamjaFlower(
                           fontSize: 35,
@@ -129,7 +130,7 @@ class TicTacToeHomePage extends StatelessWidget {
                   padding: 80,
                     horizon: 24,
                     vertical: 12,
-                    data: Text(resetGame, style: homeButtonStyle),
+                    data: Text('restart'.tr, style: homeButtonStyle),
                     onPressed: provider.resetGame,
                     buttonStyle: homeButtonStyle)
               ],
